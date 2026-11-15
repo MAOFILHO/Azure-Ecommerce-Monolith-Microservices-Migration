@@ -123,15 +123,15 @@ browser, confirmed via direct port checks that the monolith was truly stopped an
 microservices were truly running afterward, then ran the full register→login→create
 product→add to cart→checkout flow against the post-migration microservices stack.
 
-<img width="1428" height="976" alt="Screenshot 2026-07-16 at 8 55 57 PM" src="https://github.com/user-attachments/assets/7dae2caa-ceef-4a1c-917d-9e6b18b656b9" />
+<img width="100%" alt="Migrate page before the cutover: only the monolith is live" src="docs/screenshots/migrate-before.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1456" height="986" alt="Screenshot 2026-07-16 at 8 18 11 PM" src="https://github.com/user-attachments/assets/39e90fdd-3262-41e5-8a87-7872d3523da0" />
+<img width="100%" alt="Migrate page mid-cutover: user, product and order services started" src="docs/screenshots/migrate-services-live.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="884" height="981" alt="Screenshot 2026-07-16 at 8 18 39 PM" src="https://github.com/user-attachments/assets/eb6cbcdf-d6bc-46e7-8b23-56e4a93847b7" />
+<img width="100%" alt="Migrate page timeline with every strangler-fig step done" src="docs/screenshots/migrate-timeline-done.jpg" />
 
 
 
@@ -148,11 +148,11 @@ processes/three DBs," not an extra proxy hop or a different framework. Results a
 
 
 
-<img width="1393" height="674" alt="Screenshot 2026-07-17 at 4 32 10 PM" src="https://github.com/user-attachments/assets/ec0c1348-4810-49d8-9216-ace347fbb435" />
+<img width="100%" alt="Metrics page: p95 latency, monolith vs microservices" src="docs/screenshots/metrics-latency.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1419" height="613" alt="Screenshot 2026-07-16 at 10 01 46 PM" src="https://github.com/user-attachments/assets/0bf95023-8d4e-4da7-9998-d3f62599fafe" />
+<img width="100%" alt="Metrics page: throughput, monolith vs microservices" src="docs/screenshots/metrics-throughput.jpg" />
 
 
 ## Tech stack
@@ -207,7 +207,7 @@ make setup                 # creates 5 Python 3.12 venvs + installs frontend npm
 make run-all                # starts monolith + all 3 microservices + bff + frontend together
 ```
 
-<img width="1059" height="711" alt="Screenshot 2026-07-15 at 4 27 57 PM" src="https://github.com/user-attachments/assets/1792d204-d6a4-411c-b147-a1a5bc0952ba" />
+<img width="100%" alt="Terminal output of make setup installing 5 Python venvs and frontend npm dependencies" src="docs/screenshots/terminal-make-setup.jpg" />
 
 
 
@@ -220,7 +220,7 @@ Open **http://127.0.0.1:5173**.
 > everything at once with nothing auto-stopped, so both the walkthrough below and a real fresh
 > Migrate demo both work from the same starting point.
 
-<img width="1424" height="699" alt="Screenshot 2026-07-16 at 9 19 20 AM" src="https://github.com/user-attachments/assets/dfc83ddb-0f29-401f-9b95-7ed03a5d38e0" />
+<img width="100%" alt="Home page of the Contoso Migrate app" src="docs/screenshots/home.jpg" />
 
 
 
@@ -297,27 +297,27 @@ az account set --subscription "<subscription-id-or-name>"   # if you have more t
 make provision BUDGET_EMAIL=you@example.com
 ```
 
-<img width="1063" height="708" alt="Screenshot 2026-07-17 at 4 07 55 PM" src="https://github.com/user-attachments/assets/7aadfd09-8311-4f78-915f-383eaeb10625" />
+<img width="100%" alt="Terminal: make provision starts, resolves collision-safe resource names" src="docs/screenshots/azure-provision-start.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1060" height="709" alt="Screenshot 2026-07-17 at 4 08 21 PM" src="https://github.com/user-attachments/assets/312b48fc-5fbf-42d7-8595-3f6203be2589" />
+<img width="100%" alt="Terminal: five cloud-side az acr build runs, no local Docker" src="docs/screenshots/azure-provision-acr-builds.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1064" height="715" alt="Screenshot 2026-07-17 at 4 09 06 PM" src="https://github.com/user-attachments/assets/63dbe9f9-f25a-41f1-bae0-d6cf50ca704c" />
+<img width="100%" alt="Terminal: Bicep deployment and the $25/mo budget alert" src="docs/screenshots/azure-provision-bicep-deploy.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1064" height="659" alt="Screenshot 2026-07-17 at 4 25 21 PM" src="https://github.com/user-attachments/assets/43883ac7-90e2-4427-91ab-443f7f32969c" />
+<img width="100%" alt="Terminal: provision finished, Static Web App URL printed" src="docs/screenshots/azure-provision-done.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="843" height="590" alt="Screenshot 2026-07-17 at 4 20 49 PM" src="https://github.com/user-attachments/assets/4bd7c1fc-c686-43f5-a6f0-c1152c2683f0" />
+<img width="100%" alt="az resource list showing the 7 resources and 8 successful deployments" src="docs/screenshots/azure-resources-live.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1469" height="828" alt="Screenshot 2026-07-16 at 8 51 10 PM" src="https://github.com/user-attachments/assets/ed3f49d1-4bb0-4db8-8129-7f9242c7948b" />
+<img width="100%" alt="Shop running on Azure, serving from the monolith" src="docs/screenshots/azure-shop-monolith.jpg" />
 
 
 This deploys the foundation (ACR, Container Apps Environment, MySQL Flexible Server, Static Web
@@ -343,11 +343,11 @@ make teardown
 make verify     # polls until every resource is confirmed deleted
 ```
 
-<img width="1053" height="167" alt="Screenshot 2026-07-17 at 3 25 45 PM" src="https://github.com/user-attachments/assets/d4b896fe-4b16-4e32-88fd-a02d02ee5d43" />
+<img width="100%" alt="Terminal: make teardown deletes the resource group and budget alert" src="docs/screenshots/azure-teardown.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1061" height="127" alt="Screenshot 2026-07-17 at 5 22 42 PM" src="https://github.com/user-attachments/assets/04847204-720e-412e-a33f-fa6d4320731c" />
+<img width="100%" alt="Terminal: make verify confirms the resource group no longer exists" src="docs/screenshots/azure-teardown-verified.jpg" />
 
 
 `provision.py` resolves collision-safe resource names (auto-incrementing on any naming collision
@@ -402,7 +402,7 @@ make smoke      # smoke tests — pre-setup checks always run; post-setup/post-r
                 # checks skip gracefully if their prerequisite (make setup / make run / an Azure
                 # deployment) hasn't happened yet, rather than failing
 ```
-<img width="1067" height="706" alt="Screenshot 2026-07-17 at 3 29 31 PM" src="https://github.com/user-attachments/assets/714b12bd-ccd9-4883-9bfd-ff72b94342f0" />
+<img width="100%" alt="Terminal output of make smoke: 10 passed, 4 skipped" src="docs/screenshots/terminal-make-smoke.jpg" />
 
 
 ## Key engineering decisions
@@ -426,53 +426,53 @@ make smoke      # smoke tests — pre-setup checks always run; post-setup/post-r
 make teardown    # deletes every Azure resource
 make verify      # confirms deletion completed (polls — resource group deletion is asynchronous)
 ```
-<img width="1053" height="167" alt="Screenshot 2026-07-17 at 3 25 45 PM" src="https://github.com/user-attachments/assets/d4b896fe-4b16-4e32-88fd-a02d02ee5d43" />
+<img width="100%" alt="Terminal: make teardown deletes the resource group and budget alert" src="docs/screenshots/azure-teardown.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1061" height="127" alt="Screenshot 2026-07-17 at 5 22 42 PM" src="https://github.com/user-attachments/assets/04847204-720e-412e-a33f-fa6d4320731c" />
+<img width="100%" alt="Terminal: make verify confirms the resource group no longer exists" src="docs/screenshots/azure-teardown-verified.jpg" />
 
 `make teardown` is a no-op if nothing was ever provisioned (checks for `infra/.state.json` first).
 
 ## E-commerce Web App Screenshots
 
-<img width="1469" height="828" alt="Screenshot 2026-07-16 at 8 51 10 PM" src="https://github.com/user-attachments/assets/7289cd89-6e2d-4643-9340-eb9225ff03df" />
+<img width="100%" alt="Shop page with the register form" src="docs/screenshots/shop-register.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1424" height="699" alt="Screenshot 2026-07-16 at 9 19 20 AM" src="https://github.com/user-attachments/assets/dfc83ddb-0f29-401f-9b95-7ed03a5d38e0" />
+<img width="100%" alt="Home page of the Contoso Migrate app" src="docs/screenshots/home.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1451" height="871" alt="Screenshot 2026-07-16 at 8 53 08 PM" src="https://github.com/user-attachments/assets/e120982f-3c5a-4c77-969b-d314fbc924cb" />
+<img width="100%" alt="Shop page after sign-in, product catalog" src="docs/screenshots/shop-signed-in.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1453" height="874" alt="Screenshot 2026-07-16 at 8 55 41 PM" src="https://github.com/user-attachments/assets/21a3924c-1a10-42d9-bac5-d91ecbed7fa5" />
+<img width="100%" alt="Shop page with two items added to the cart" src="docs/screenshots/shop-add-to-cart.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="867" height="394" alt="Screenshot 2026-07-16 at 8 55 27 PM" src="https://github.com/user-attachments/assets/e3ce6232-8f14-440d-8c78-4cfbf257e492" />
+<img width="100%" alt="Cart with two items and the checkout button" src="docs/screenshots/shop-cart.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1450" height="983" alt="Screenshot 2026-07-16 at 8 19 08 PM" src="https://github.com/user-attachments/assets/f7b35522-8570-41a9-8f94-6ab789e8046b" />
+<img width="100%" alt="Order placed confirmation" src="docs/screenshots/shop-order-placed.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1457" height="984" alt="Screenshot 2026-07-16 at 8 23 31 PM" src="https://github.com/user-attachments/assets/9f9e6d00-f69c-4972-9baa-63b2827d3125" />
+<img width="100%" alt="Shop page after the monolith was decommissioned" src="docs/screenshots/shop-monolith-decommissioned.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1456" height="986" alt="Screenshot 2026-07-16 at 8 18 11 PM" src="https://github.com/user-attachments/assets/1f24690b-f969-43f4-af10-25299730949c" />
+<img width="100%" alt="Migrate page after the cutover: monolith decommissioned" src="docs/screenshots/migrate-after.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="1419" height="613" alt="Screenshot 2026-07-16 at 10 01 46 PM" src="https://github.com/user-attachments/assets/ff847e47-7a3e-4977-a68c-b814ef130a94" />
+<img width="100%" alt="Metrics page: throughput, monolith vs microservices" src="docs/screenshots/metrics-throughput.jpg" />
 
 <img width="100%" height="1" alt="" src="https://github.com/user-attachments/assets/f2af28ee-a373-4488-89e5-2b84d5da9620" />
 <br><br>
-<img width="892" height="701" alt="Screenshot 2026-07-16 at 10 01 57 PM" src="https://github.com/user-attachments/assets/241ad6ee-342f-4f88-bfbc-9a5b1a737948" />
+<img width="100%" alt="Learn page: why microservices" src="docs/screenshots/learn.jpg" />
 
 
 
